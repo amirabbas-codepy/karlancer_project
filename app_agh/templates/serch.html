@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <title>serch</title>
+    <div class="menu-container">
+        <!-- چک‌باکس مخفی -->
+        <input type="checkbox" id="menu-toggle" />
+        <!-- برچسب دکمه همبرگر که با کلیک چک‌باکس رو تغییر میده -->
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+        <div class="menu">
+        <a href="{% url 'home' %}">صفحه اصلی</a>        
+        <a href="{% url 'profile' %}">پروفایل</a>
+        </div>
+    </div>
+
+{% endblock header %}
+
+{% block body %}
+
+    <link rel="stylesheet" href="{% static "css/serch.css" %}?v=9"> 
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit", value="جستجو">
+    </form>    
+
+    {% if data %}
+    
+        {% for agh in data %}
+        <div class="ad-item">
+            <div class="ad-header">
+            <h3>{{ agh.name }}</h3>
+            <span class="ad-price">{{ agh.price }} تومان</span>
+            <span class="ad-price">{{ agh.title }}</span>
+        
+            </div>
+            {% if agh.image %}
+            <img src="{{ agh.image.url }}" alt="{{ agh.name }}">
+            {% else %}
+            <p>تصویر موجود نیست.</p>
+            {% endif %}
+            
+            <div class="ad-buttons">
+            <a href="{{ agh.image.url }}" target="_blank" class="btn btn-image">مشاهده تصویر</a>
+            <a href="{% url 'details' agh.id %}" class="btn btn-view">مشاهده</a>
+            </div>
+        </div>
+        {% endfor %}
+    
+    {% endif %}
+    
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+{% endblock %}

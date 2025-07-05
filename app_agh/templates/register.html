@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    {% comment %} <h2>sigin</h2> {% endcomment %}
+{% endblock header %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}?v=5">
+
+    
+    <!-- <h2>ثبت نام</h2> -->
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit", value="ثبت نام">
+    </form>    
+
+    <a href="{% url 'login' %}" class="registered-link">ثبت نام کرده ام</a>
+
+    
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% endblock body %}

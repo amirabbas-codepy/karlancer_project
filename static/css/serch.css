@@ -1,0 +1,434 @@
+
+
+/* فایل: static/css/search_form.css */
+
+/* وسط چین کردن کل محتوا */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* وسط چین افقی */
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 20px 10px;
+    background-color: #f9f9f9;
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    color: #333;
+    text-align: left;
+}
+
+/* کانتینر منو (دکمه و منو) */
+.menu-container {
+    position: relative;
+    text-align: left;
+    padding: 15px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    z-index: 10000;
+}
+
+/* مخفی کردن چک‌باکس */
+#menu-toggle {
+    display: none;
+}
+
+/* آیکون منو (همبرگر) */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: #007bff;
+    user-select: none;
+    font-weight: bold;
+    padding: 0;
+    display: inline-block;
+}
+
+/* منو */
+.menu {
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 55px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 160px;
+    z-index: 1000;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* نمایش منو وقتی تیک خورده */
+#menu-toggle:checked + .menu-icon + .menu {
+    display: flex;
+}
+
+/* لینک‌های منو */
+.menu a {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.menu a:last-child {
+    margin-bottom: 0;
+}
+
+.menu a:hover {
+    background-color: #0056b3;
+}
+
+/* لینک‌های داخل بدنه (آگهی‌ها) */
+body a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+body a:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+/* استایل آگهی‌ها */
+.ad-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;  /* وسط چین */
+    text-align: left;
+    font-family: Tahoma, sans-serif;
+}
+
+/* بخش هدر آگهی (عنوان + قیمت کنار هم) */
+.ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ad-header h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #222;
+}
+
+.ad-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* تصویر آگهی */
+.ad-item img {
+    width: 50%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* دکمه‌ها */
+.ad-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.ad-buttons a {
+    flex: 1;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.ad-buttons a:hover {
+    background-color: #0056b3;
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+    .ad-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .ad-buttons {
+        flex-direction: column;
+    }
+
+    .ad-buttons a {
+        flex: none;
+    }
+}
+
+/* فرم جستجو */
+form {
+    max-width: 500px;
+    margin: 50px auto 70px;
+    padding: 30px 35px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
+    display: flex;
+    gap: 15px;
+    direction: rtl;
+    align-items: center;
+    font-family: 'Vazirmatn', sans-serif;
+    width: 100%;
+}
+
+/* برای وسط چین شدن فرم در والد */
+form p {
+    flex: 1;
+    margin: 0;
+    position: relative;
+}
+
+/* فیلد جستجو */
+form input[type="text"] {
+    width: 100%;
+    padding: 15px 45px 15px 20px;
+    font-size: 1.1rem;
+    border: 2.5px solid #d1d1ff;
+    border-radius: 35px;
+    outline: none;
+    transition: all 0.35s ease;
+    box-shadow: inset 0 2px 5px rgba(108, 99, 255, 0.1);
+    color: #333;
+}
+
+/* هاور و فوکوس */
+form input[type="text"]:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 12px rgba(108, 99, 255, 0.6);
+}
+
+/* آیکون لوپ */
+form p::after {
+    content: "\1F50D";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: #6c63ff;
+    pointer-events: none;
+}
+
+/* دکمه ارسال */
+form input[type="submit"] {
+    background: linear-gradient(45deg, #6c63ff, #574fd6);
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 30px;
+    font-size: 1.2rem;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4);
+    transition: all 0.35s ease;
+    flex-shrink: 0;
+    min-width: 140px;
+    margin-right: 20px; /* فاصله بیشتر از سمت راست دکمه */
+}
+
+form input[type="submit"]:hover {
+    background: linear-gradient(45deg, #574fd6, #423bb0);
+    box-shadow: 0 15px 35px rgba(86, 79, 214, 0.65);
+    transform: translateY(-3px);
+}
+
+/* موبایل */
+@media screen and (max-width: 520px) {
+    form {
+        flex-direction: column;
+        padding: 25px;
+        margin: 50px auto 40px;
+    }
+
+    form input[type="submit"] {
+        width: 100%;
+        min-width: unset;
+        padding: 15px 0;
+        border-radius: 25px;
+        font-size: 1.3rem;
+        margin-top: 15px;
+        margin-right: 0;
+        transform: none !important;
+        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+    }
+
+    form p::after {
+        right: 12px;
+        font-size: 1.3rem;
+    }
+}
+
+form label {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #574fd6;
+    margin-bottom: 8px;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    text-shadow: 0 1px 2px rgba(87, 79, 214, 0.4);
+    cursor: default;
+}
+
+
+/* استایل پیام‌های جنگو */
+ul.messages {
+    max-width: 500px;
+    margin: 20px auto 30px;
+    padding: 0;
+    list-style: none;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+}
+
+ul.messages li {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* پیام خطا */
+ul.messages li.error {
+    background-color: #ffe6e6;
+    color: #d9534f;
+    border: 1.5px solid #d9534f;
+}
+
+/* پیام موفقیت */
+ul.messages li.success {
+    background-color: #e6ffea;
+    color: #28a745;
+    border: 1.5px solid #28a745;
+}
+
+/* پیام هشدار */
+ul.messages li.warning {
+    background-color: #fff5cc;
+    color: #ffae00;
+    border: 1.5px solid #ffae00;
+}
+
+/* پیام اطلاع‌رسانی */
+ul.messages li.info {
+    background-color: #e6f0ff;
+    color: #007bff;
+    border: 1.5px solid #007bff;
+}
+
+/* زیباسازی متن پیام */
+ul.messages li:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+/* کانتینر منو (دکمه و منو) */
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;           /* منو و دکمه کاملا سمت چپ صفحه */
+    padding: 10px 15px;
+    background-color: white;
+    border-bottom-right-radius: 12px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 60px;          /* اندازه کافی برای آیکون */
+}
+
+/* مخفی کردن چک‌باکس */
+#menu-toggle {
+    display: none;
+}
+
+/* آیکون منو (همبرگر) */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+    color: #007bff;
+    user-select: none;
+    font-weight: bold;
+    padding: 0;
+    display: inline-block;
+}
+
+/* منو */
+.menu {
+    display: none;
+    position: fixed;           /* ثابت در صفحه */
+    top: 50px;                 /* دقیقا پایین دکمه منو */
+    left: 0;                   /* از چپ صفحه شروع می‌شود */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 160px;
+    z-index: 10001;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* نمایش منو وقتی چک‌باکس تیک خورده */
+#menu-toggle:checked + .menu-icon + .menu {
+    display: flex;
+}
+
+/* لینک‌های منو */
+.menu a {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.menu a:last-child {
+    margin-bottom: 0;
+}
+
+.menu a:hover {
+    background-color: #0056b3;
+}

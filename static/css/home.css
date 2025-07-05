@@ -1,0 +1,213 @@
+
+/* کل صفحه چپ‌چین */
+body {
+    direction: ltr;
+    /* مهم */
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: left;
+    /* محتوا چپ‌چین */
+  }
+  
+  /* کانتینر منو (دکمه و منو) */
+.menu-container {
+    position: relative;
+    text-align: left;
+    /* منو و دکمه هم چپ‌چین */
+    padding: 15px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    z-index: 10000;
+}
+
+/* مخفی کردن چک‌باکس */
+#menu-toggle {
+display: none;
+}
+
+/* آیکون منو (همبرگر) */
+.menu-icon {
+font-size: 28px;
+cursor: pointer;
+color: #007bff;
+user-select: none;
+font-weight: bold;
+padding: 0;
+display: inline-block;
+}
+
+/* منو */
+.menu {
+display: none;
+position: absolute;
+left: 20px;
+/* سمت چپ */
+top: 55px;
+background-color: white;
+border: 1px solid #ddd;
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+padding: 10px;
+width: 160px;
+z-index: 1000;
+flex-direction: column;
+text-align: left;
+/* لینک‌ها چپ‌چین */
+}
+
+/* نمایش منو وقتی تیک خورده */
+#menu-toggle:checked+.menu-icon+.menu {
+display: flex;
+}
+
+  /* لینک‌های منو */
+  .menu a {
+    display: block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .menu a:last-child {
+    margin-bottom: 0;
+  }
+  
+  .menu a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* لینک‌های داخل بدنه (آگهی‌ها) */
+  body a {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  body a:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+  }
+  
+  /* استایل آگهی‌ها */
+  .ad-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: 0;
+    /* بچسبه به چپ */
+    margin-right: auto;
+    text-align: left;
+    /* متن چپ‌چین */
+  }
+  
+  /* عکس داخل آگهی */
+.ad-item img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  
+.ad-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+    font-family: Tahoma, sans-serif;
+  }
+  
+  /* بخش هدر آگهی (عنوان + قیمت کنار هم) */
+.ad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+.ad-header h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #222;
+  }
+  
+.ad-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    /* سبز برای قیمت */
+  }
+  
+  /* تصویر آگهی */
+  .ad-item img {
+    width: 50%; /* اندازه دلخواه */
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+  
+  /* دکمه‌ها */
+.ad-buttons {
+    display: flex;
+    gap: 12px;
+    /* فاصله بین دکمه‌ها */
+  }
+  
+.ad-buttons a {
+    flex: 1;
+    /* هر دکمه فضای مساوی */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+.ad-buttons a:hover {
+    background-color: #0056b3;
+  }
+  
+  /* برای موبایل دکمه‌ها زیر هم */
+@media (max-width: 480px) {
+    .ad-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  
+.ad-buttons {
+      flex-direction: column;
+    }
+  
+.ad-buttons a {
+      flex: none;
+    }
+  }

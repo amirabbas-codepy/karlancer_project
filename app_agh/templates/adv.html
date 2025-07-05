@@ -1,0 +1,43 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+
+    <div class="menu-container">
+        <!-- چک‌باکس مخفی -->
+        <input type="checkbox" id="menu-toggle" />
+        <!-- برچسب دکمه همبرگر که با کلیک چک‌باکس رو تغییر میده -->
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+        <div class="menu">
+        <a href="{% url 'home' %}">صفحه اصلی</a>        
+        <a href="{% url 'login' %}">پروفایل</a>
+        <a href="{% url 'serch' %}">جستجو اگهی ها</a>
+
+        </div>
+    </div>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+
+{% endblock header %}
+
+{% block body %}
+    
+    <link rel="stylesheet" href="{% static "css/adv.css" %}"> 
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit", value="ثبت اگهی">
+    </form>  
+
+{% endblock %}

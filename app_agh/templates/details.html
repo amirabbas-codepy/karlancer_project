@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <h1 class="ad-title">{{ data.title }}</h1>
+{% endblock header %}
+
+{% block body %}
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}?v=6">
+
+    <div class="ad-details-container">
+        <div class="ad-image">
+            <img src="{{ data.image.url }}" alt="{{ data.name }}">
+        </div>
+
+        <div class="ad-info">
+            <h2 class="ad-name">{{ data.name }}</h2>
+            <p class="ad-description">{{ data.descripitions }}</p>
+
+            <div class="ad-meta">
+                <p><strong>تاریخ ایجاد:</strong> {{ data.time_create }}</p>
+                <p><strong>آخرین بروزرسانی:</strong> {{ data.time_update }}</p>
+                <p><strong>قیمت:</strong> {{ data.price }} تومان</p>
+                <p><strong>شماره تماس:</strong> {{ data.connection_path }}</p>
+                <p><strong>وضعیت:</strong> {{ data.status }}</p>
+                <a href="{% url 'report' data.id %}" class="delete-link">گزارش تخلف</a>
+
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}

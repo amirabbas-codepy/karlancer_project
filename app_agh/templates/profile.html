@@ -1,0 +1,35 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+    <h2>پروفایل من</h2>
+{% endblock header %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}?v=1">
+
+<div class="profile-container">
+    <h3>آگهی‌های من</h3>
+    {% if syss %}
+        <div class="ads-grid">
+            {% for ad in syss %}
+                <div class="ad-card">
+                    <img src="{{ ad.image.url }}" alt="{{ ad.title }}">
+                    <div class="ad-info">
+                        <h4>{{ ad.title }}</h4>
+                        <p>{{ ad.descripitions|truncatewords:20 }}</p>
+                        <p class="price">{{ ad.price }} تومان</p>
+                        <a href="{% url 'delete' ad.id %}" class="delete-link">حذف</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>هیچ آگهی ثبت نشده است.</p>
+    {% endif %}
+</div>
+{% endblock body %}
+
+

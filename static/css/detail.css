@@ -1,0 +1,180 @@
+
+/* فایل: static/css/ad_details.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(to right, #fdfbfb, #ebedee);
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    color: #333;
+}
+
+.ad-details-container {
+    max-width: 960px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 30px;
+    transition: all 0.3s ease-in-out;
+    flex-wrap: wrap;
+}
+
+.ad-details-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.ad-image {
+    flex: 1 1 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.ad-info {
+    flex: 2 1 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 10px;
+}
+
+.ad-title {
+    font-size: 2rem;
+    color: #222;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ad-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ad-description {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #555;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.ad-meta p {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #444;
+    padding-right: 20px;
+    position: relative;
+}
+
+.ad-meta p::before {
+    content: "•";
+    position: absolute;
+    right: 0;
+    color: #6c63ff;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.ad-meta strong {
+    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .ad-details-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .ad-image, .ad-info {
+        flex: 1 1 100%;
+    }
+
+    .ad-title {
+        font-size: 1.6rem;
+    }
+
+    .ad-name {
+        font-size: 1.3rem;
+    }
+}
+
+
+a.delete-link {
+    display: inline-block;
+    background-color: #dc3545; /* قرمز Bootstrap */
+    color: white;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+  }
+  
+  a.delete-link:hover {
+    background-color: #a71d2a;
+    text-decoration: none;
+  }
+
+/* پیام موفقیت */
+.messages li.success {
+    background: #4caf50; /* سبز */
+    color: white;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+    font-weight: 600;
+    font-size: 1rem;
+    border-left: 6px solid #388e3c;
+    position: relative;
+    user-select: none;
+    animation: slideInFromTop 0.4s ease forwards;
+  }
+  
+  .messages li.success::before {
+    content: "✔";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #388e3c;
+    text-shadow: 0 0 4px rgba(56,142,60,0.8);
+  }
+  
+  /* انیمیشن ورود پیام */
+  @keyframes slideInFromTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

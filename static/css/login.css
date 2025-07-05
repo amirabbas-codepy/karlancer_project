@@ -1,0 +1,193 @@
+
+/* کانتینر فرم */
+form {
+  max-width: 400px;
+  margin: 60px auto 20px;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 14px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* استایل ورودی‌ها */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+/* دکمه ارسال */
+form input[type="submit"] {
+  width: 100%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 16px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 15px rgba(118,75,162,0.6),
+    0 3px 10px rgba(102,126,234,0.5);
+  transition: background 0.3s ease, transform 0.2s ease;
+  letter-spacing: 1px;
+  user-select: none;
+}
+
+form input[type="submit"]:hover {
+  background: linear-gradient(45deg, #5c3789, #5360d8);
+  transform: scale(1.05);
+}
+
+/* لینک ثبت نام */
+a[href$="register"] {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto 40px;
+  text-align: center;
+  color: #555;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+a[href$="register"]:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* نمایش پیام‌ها */
+.messages {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 0;
+  list-style: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 9999;
+}
+
+/* پیام خطا */
+.messages li.error {
+  background: #f44336; /* قرمز */
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(244, 67, 54, 0.4);
+  font-weight: 600;
+  font-size: 1rem;
+  border-left: 6px solid #d32f2f;
+  position: relative;
+  user-select: none;
+  animation: slideInFromTop 0.4s ease forwards;
+}
+
+.messages li.error::before {
+  content: "⚠";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #d32f2f;
+  text-shadow: 0 0 4px rgba(211,47,47,0.8);
+}
+
+/* پیام موفقیت */
+.messages li.success {
+  background: #4caf50; /* سبز */
+  color: white;
+  padding: 14px 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+  font-weight: 600;
+  font-size: 1rem;
+  border-left: 6px solid #388e3c;
+  position: relative;
+  user-select: none;
+  animation: slideInFromTop 0.4s ease forwards;
+}
+
+.messages li.success::before {
+  content: "✔";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #388e3c;
+  text-shadow: 0 0 4px rgba(56,142,60,0.8);
+}
+
+/* انیمیشن ورود پیام */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* کانتینر لینک ثبت نام */
+.register-link {
+  display: block;
+  max-width: 400px;
+  margin: 20px auto 50px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+/* افکت هاور */
+.register-link:hover {
+  color: #007bff;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+/* افکت زیرخط متحرک هنگام هاور */
+.register-link::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease;
+  margin: 4px auto 0;
+  border-radius: 2px;
+}
+
+.register-link:hover::after {
+  width: 60%;
+}

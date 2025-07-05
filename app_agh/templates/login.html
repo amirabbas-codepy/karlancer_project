@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}{% endblock header %}
+
+{% block body %}
+    {% comment %} <h2>ثبت نام</h2> {% endcomment %}
+    <link rel="stylesheet" href={% static "css/login.css" %}>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit", value="ورود">
+    </form>    
+    <a href="{% url 'register' %}" class="register-link">ثبت نام نکرده ام</a>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% endblock body %}
